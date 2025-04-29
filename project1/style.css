@@ -4,118 +4,159 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Helvetica';
+body, html {
+    height: 100%;
+    font-family: 'Helvetica', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-image: url('./img/abstract-background-with-stars.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .wrapper {
-    border: 3px solid black;
-    width: 800px;
-    height: 600px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-image: url('./img/tela.png');
-    overflow: hidden;
+    width: 1200px;
+    height: 800px;
+    background-image: url('./img/Image\ Fundo.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20%;
+    position: relative;
+}
+
+.highscore {
+    align-self: flex-start;
+    font-size: 25px;
+    font-weight: 900;
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    color: #0a173d;
 }
 
 .score {
     font-size: 100px;
-    color: blue;
-    top: 8%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
+    color: rgb(0, 225, 255);
     width: 200px;
     height: 100px;
     text-align: center;
 }
 
-.highscore {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 25px;
-    font-weight: 900;
-    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
-    background-color: rgba(255, 255, 255, 0.3);
-    padding: 10px 15px;
-    
-}
-
 .countdown {
-    position: absolute;
-    top: 505px;
-    width: 100%;
     font-size: 20px;
     text-align: center;
-    color: red;
+    color: rgb(0, 225, 255);
+    margin-top: auto;
 }
 
 button {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translate(-50%, 0);
-    background: green;
-    color: white;
-    padding: 20px 40px;
-    z-index: 200;
-    cursor: pointer;
+    background-color: #0d1a4d;
+    color: #ffffff;
+    text-transform: uppercase;
+    box-shadow: 15px 15px 40px rgb(1, 245, 245);
+    padding: 15px 35px;
     border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
     outline: none;
+    margin-top: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+button:hover {
+    background-color: #112266;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #0a173d;
+    transform: scale(0.98);
+}
+
+
 .game {
-    width: 400px;
-    height: 480px;
-    margin: 30px auto;
-    z-index: 200;
+    width: 100%;
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
 }
 
 .hole {
-    flex: 1 0 33.35%;
     position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
+    border-radius: 50%;
+
 }
 
 .hole::after {
     content: '';
-    display: block;
-    background-image: url('./img/nuvem-removebg-preview.png');
     position: absolute;
-    background-repeat: no-repeat;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    z-index: 2;
-    height: 70px;
     bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 180px;
+    background-image: url('./img/nuvemImage.png');
+    background-repeat: no-repeat;
     background-size: contain;
+    background-position: center;
+    z-index: 10;
+    pointer-events: none;
+
 }
 
 .mole {
-    background-image:  url('./img/starlove-removebg-preview.png');
-    position: absolute;
-    top: 0px;/*-60px*/
-    width: 100%;
-    height: 100%;
+    background-image: url('./img/starlove-removebg-preview.png');
+    width: 80%;
+    height: 80%;
     background-repeat: no-repeat;
-    transition: 0.4s;
     background-position: bottom;
+    background-size: contain;
+    transition: transform 0.4s;
+    z-index: 5; /* padrão, atrás da nuvem */
+    cursor: default;
+    margin-top: 50px;
+
+    cursor: pointer;
+
 }
 
 .mole.small {
-    background-size: 30%;
+    width: 30%;
+    height: 30%;
 }
 
 .mole.large {
-    background-size: 50%;
+    width: 45%;
+    height: 45%;
 }
 
 .hole.up .mole {
-    top: -60px;
+    transform: translateY(-60px);
+    z-index: 15; /* quando aparece, fica na frente da nuvem */
+    cursor: pointer;
 }
+
+
+

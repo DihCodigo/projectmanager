@@ -12,7 +12,7 @@ let timeLimit = 20000;
 let score = 0;
 let countdown;
 let highscore = localStorage.getItem('gameHighScore') || 0;
-highScoreBoard.textContent = 'HIGH SCORE: ' + highscore;
+highScoreBoard.textContent = 'Maior Pontuação: ' + highscore;
 
 function pickRandomHole(holes) {
     const randomHole = Math.floor(Math.random() * holes.length);
@@ -63,15 +63,23 @@ function startGame() {
 startButton.addEventListener('click', startGame);
 
 function startwhack(e) {
+    const hole = this.parentElement;
+    if (!hole.classList.contains('up')) return;
+
     score++;
+    scoreBoard.textContent = score;
+
     this.style.backgroundImage = 'url("./img/startount-removebg-preview.png")';
     this.style.pointerEvents = 'none';
+
     setTimeout(() => {
         this.style.backgroundImage = 'url("./img/starlove-removebg-preview.png")';
         this.style.pointerEvents = 'all';
-    }, 800)
-    scoreBoard.textContent = score;
+    }, 800);
+
+    hole.classList.remove('up');
 }
+
 
 moles.forEach(mole => mole.addEventListener('click', startwhack));
 
@@ -79,6 +87,6 @@ function checkHighScore() {
     if(score > localStorage.getItem('gameHighScore')) {
         localStorage.setItem('gameHighScore', score);
         highscore = score;
-        highScoreBoard.textContent = 'HIGH SCORE: ' + highscore;
+        highScoreBoard.textContent = 'Maior Pontuação: ' + highscore;
     }
 }
