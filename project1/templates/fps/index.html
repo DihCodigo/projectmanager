@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FPS</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #f5f5f5;
+            overflow: hidden;
+        }
+
+        .arrow {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 150px;
+            transform: translateX(-50%) rotate(0deg);
+            transform-origin: 50% 25%;
+            pointer-events: none;
+        }
+
+        .crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="highscore">Maior Pontuação: 0</div>
+        <div class="score">0</div>
+        <div class="countdown"></div>
+        <button class="startButton">Iniciar</button>
+
+        <div class="game">
+            <div class="box box1">
+                <div class="mole small"></div>                
+            </div>
+            <div class="box box2">
+                <div class="mole large"></div>
+            </div>
+            <div class="box box3">
+                <div class="mole small"></div>
+            </div>
+            <div class="box box4">
+                <div class="mole small"></div>
+            </div>
+            <div class="box box5">
+                <div class="mole large"></div>
+            </div>
+            <div class="box box6">
+                <div class="mole small"></div>
+            </div>
+            <div class="box box7">
+                <div class="mole small"></div>                
+            </div>
+            <div class="box box8">
+                <div class="mole large"></div>
+            </div>
+            <div class="box box9">
+                <div class="mole small"></div>
+            </div>
+            <div class="box box10">
+                <div class="mole small"></div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="crosshair"></div>
+    <img src="./img/fpsBoom-removebg-preview (2).png" class="arrow" id="arrow" alt="Arma">
+
+    <script src="./script.js"></script>
+
+    <script>
+        const arrow = document.getElementById('arrow');
+
+        document.addEventListener('mousemove', (e) => {
+            const rect = arrow.getBoundingClientRect();
+
+            const originX = rect.left + rect.width;
+            const originY = rect.top + rect.height;
+
+            const dx = e.clientX - originX;
+            const dy = e.clientY - originY;
+
+            const angle = Math.atan2(dy, dx);
+
+            arrow.style.transform = `translateX(-50%) rotate(${angle}rad)`;
+        });
+    </script>
+</body>
+
+</html>

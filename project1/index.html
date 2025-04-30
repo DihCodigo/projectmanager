@@ -1,58 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>getStar</title>
-    <link rel="stylesheet" href="style.css">
+    <title>IntroGames</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        
+    </style>
 </head>
+
 <body>
-    <div class="wrapper">
-        <div class="highscore">Maior Pontuação: 0</div>
-        <div class="score">0</div>
-        <div class="countdown"></div>
-        <button class="startButton">Iniciar</button>
+    <header>
+        <h1>IntroGames</h1>
+    </header>
 
-        <div class="game">
-            <div class="hole hole1">
-                <div class="mole small"></div>                
+    <main>
+        <section class="game-cards">
+            <div class="cardGame">
+                <div class="front">
+                    <img src="./img/starGames.jpg" alt="Star Games">
+                </div>
+                <div class="back">
+                    <p>GetStar</p>
+                    <a href="./templates/stars/index.html" class="start-btn">Iniciar</a>
+                </div>
             </div>
-            <div class="hole hole2">
-                <div class="mole large"></div>
+
+            <div class="cardGame">
+                <div class="front">
+                    <img src="./img/fpsGames.jpg" alt="FPS Games">
+                </div>
+                <div class="back">
+                    <p>FpsBoomBastic</p>
+                    <a href="./templates/fps/index.html" class="start-btn">Iniciar</a>
+                </div>
             </div>
-            <div class="hole hole3">
-                <div class="mole small"></div>
-            </div>
-            <div class="hole hole4">
-                <div class="mole small"></div>
-            </div>
-            <div class="hole hole5">
-                <div class="mole large"></div>
-            </div>
-            <div class="hole hole6">
-                <div class="mole small"></div>
-            </div>
-            <div class="hole hole7">
-                <div class="mole small"></div>                
-            </div>
-            <div class="hole hole8">
-                <div class="mole large"></div>
-            </div>
-            <div class="hole hole9">
-                <div class="mole small"></div>
-            </div>
-            <div class="hole hole10">
-                <div class="mole small"></div>
-            </div>
-            <div class="hole hole11">
-                <div class="mole large"></div>
-            </div>
-            <div class="hole hole12">
-                <div class="mole small"></div>
-            </div>
-        </div>
+        </section>
+
+        <section class="actions">
+            <button class="settings-btn">Configurações</button>
+            <button class="logout-btn">Sair</button>
+        </section>
+    </main>
+
+    <div class="loading-overlay" id="loading">
+        <div class="loader"></div>
     </div>
-
-    <script src="./script.js"></script>
+<script src="./js/script.js"></script>
 </body>
+
 </html>
